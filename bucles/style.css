@@ -6,4 +6,5 @@
 body{
     display: flex;
     border: 5px;
+    justify-content: center;
 }
