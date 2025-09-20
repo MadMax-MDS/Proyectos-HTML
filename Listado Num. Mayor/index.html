@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Número mayor</title>
+  <style>
+    /* --- Estilos generales --- */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff6600, #ff9966); /* Degradado naranja */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* --- Contenedor principal --- */
+    .contenedor {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+
+    /* --- Input para escribir números --- */
+    #numeroInput {
+      padding: 10px;
+      font-size: 16px;
+      width: 180px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    #numeroInput:focus {
+      border-color: #ff6600;
+    }
+
+    /* --- Botón añadir --- */
+    #btnAgregar {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    #btnAgregar:hover {
+      background: #0097a7;
+    }
+
+    /* --- Lista de números añadidos --- */
+    #listaNumeros {
+      margin: 20px 0;
+    }
+
+    .numero {
+      display: inline-block;
+      background: #f4a261;
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* --- Texto del resultado --- */
+    #resultado {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <!-- Input y botón para ingresar números -->
+    <input type="number" id="numeroInput" placeholder="Escribe un número">
+    <button id="btnAgregar">Añadir</button>
+
+    <!-- Aquí aparecen los números ingresados -->
+    <div id="listaNumeros"></div>
+
+    <!-- Aquí se muestra el mayor -->
+    <p id="resultado">El número mayor es: </p>
+  </div>
+
+  <script>
+    // Array donde se guardarán los números
+    let numeros = [];
+
+    // Referencias a los elementos del DOM
+    const input = document.getElementById("numeroInput");
+    const btn = document.getElementById("btnAgregar");
+    const lista = document.getElementById("listaNumeros");
+    const resultado = document.getElementById("resultado");
+
+    // Cuando se hace clic en "Añadir"
+    btn.addEventListener("click", agregarNumero);
+
+    // También funciona con tecla "Enter"
+    input.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        agregarNumero();
+      }
+    });
+
+    // Función que agrega un número al array
+    function agregarNumero() {
+      let valor = parseInt(input.value);
+
+      // Validación: evitar vacíos o NaN
+      if (input.value === "") {
+        alert("Por favor ingresa un número");
+        return;
+      }
+
+      // Guardamos el número
+      numeros.push(valor);
+
+      // Mostramos los números y el mayor
+      mostrarNumeros();
+      mostrarMayor();
+
+      // Limpiamos el input
+      input.value = "";
+      input.focus();
+    }
+
+    // Muestra todos los números añadidos
+    function mostrarNumeros() {
+      lista.innerHTML = "";
+      numeros.forEach(num => {
+        let span = document.createElement("span");
+        span.textContent = num;
+        span.classList.add("numero");
+        lista.appendChild(span);
+      });
+    }
+
+    // Calcula y muestra el mayor
+    function mostrarMayor() {
+      let mayor = Math.max(...numeros);
+      resultado.textContent = `El número mayor es: ${mayor}`;
+    }
+  </script>
+</body>
+</html>
