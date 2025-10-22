@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f6f6f6;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.tienda {
+  flex: 1;
+}
+
+.tienda h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.producto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.info .nombre {
+  font-weight: bold;
+}
+
+.info .precio {
+  color: gray;
+  font-size: 14px;
+}
+
+.add-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.carrito {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.carrito h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.items {
+  flex: 1;
+  background: #f1f1f1;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+  overflow-y: auto;
+  height: 200px;
+}
+
+.total {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.comprar {
+  background: rgb(36, 180, 36);
+  border: none;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.comprar:hover {
+  background: green;
+}
