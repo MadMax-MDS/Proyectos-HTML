@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Barra superior */
+.navbar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.navbar .menu a:hover {
+    text-decoration: underline;
+}
+
+.parrafo {
+    width: 100%;
+    margin: auto;
+    max-width: 700px;
+}
+
+.Castillo {
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+main {
+    display: flex;
+    width: 100%;
+
+}
+
+.xd {
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #000000;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;   
+
+    }   
+
+    .menu.active {
+        display: flex;
+    }
+
+    .xd {
+        background-color: #000000;
+        border: 1px white solid;
+        display: block;
+        filter: brightness(1);
+    }
+
+    .navbar {
+        align-items: center;
+    }
+}
